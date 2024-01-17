@@ -7,7 +7,7 @@ const dbPath =
     ? './demo_table.sqlite'
     : path.join(process.resourcesPath, './demo_table.sqlite')
 
-const db = new Database(dbPath, Database.OPEN_READWRITE, (err) => {
+const db = new Database(dbPath, { verbose: console.log }, (err) => {
   if (err) {
     console.error(err.message)
   }

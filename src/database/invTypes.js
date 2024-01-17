@@ -15,6 +15,5 @@ CREATE TABLE IF NOT EXISTS invTypes (
     iconID INTEGER,
     soundID INTEGER,
     graphicID INTEGER,
-    FOREIGN KEY (groupID) REFERENCES invTypes(typeID),
     CHECK (published IN (0,1))
   )`

@@ -1,7 +1,7 @@
 import { contextBridge } from 'electron'
+const path = require('path')
 import { electronAPI } from '@electron-toolkit/preload'
-const personDB = require('./Database/PersonManager')
-
+const personDB = require(path.resolve('./src/database/PersonManage.js'))
 // Custom APIs for renderer
 const api = {}
 
@@ -10,7 +10,6 @@ const api = {}
 // just add to the DOM global.
 if (process.contextIsolated) {
   try {
-    console.log('IDK')
     contextBridge.exposeInMainWorld('electron', electronAPI)
     contextBridge.exposeInMainWorld('api', api)
     contextBridge.exposeInMainWorld('sqlite', personDB)

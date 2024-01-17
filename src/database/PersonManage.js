@@ -1,4 +1,5 @@
-const dbmgr = require('./dbManager')
+const dbmgr = require('./dbManager.js')
+
 const db = dbmgr.db
 
 const readAllPerson = () => {

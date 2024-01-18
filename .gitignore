@@ -4,3 +4,7 @@ out
 .DS_Store
 *.log*
 .vscode
+demo_table.sqlite
+demo_table.sqlite-shm
+demo_table.sqlite-wal
+```

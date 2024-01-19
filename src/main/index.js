@@ -5,7 +5,6 @@ import icon from '../../resources/icon.png?asset'
 
 function createWindow() {
   // Create the browser window.
-  console.log('idk')
   const mainWindow = new BrowserWindow({
     width: 1200,
     height: 1200,

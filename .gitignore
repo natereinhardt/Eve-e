@@ -3,3 +3,11 @@ dist
 out
 .DS_Store
 *.log*
+.vscode
+demo_table.sqlite
+demo_table.sqlite-shm
+demo_table.sqlite-wal
+sqlite-latest.sqlite
+sqlite-latest.sqlite-shm
+sqlite-latest.sqlite-wal
+sqlite-latest.sqlite.bz2

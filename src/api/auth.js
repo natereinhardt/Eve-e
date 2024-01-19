@@ -6,8 +6,8 @@ console.log('here')
 const authenticate = (username, password) => {
   console.log(username, password)
   const user = users.find((x) => x.username === username && x.password === password)
-
-  if (!user) return error('Username or password is incorrect')
+  console.log(user)
+  if (!user) throw new Error('Username or password is incorrect')
 
   return ok({
     id: user.id,
@@ -20,10 +20,6 @@ const authenticate = (username, password) => {
 
 function ok(body) {
   return { ok: true, text: () => Promise.resolve(JSON.stringify(body)) }
-}
-
-function error(message) {
-  return { status: 400, text: () => Promise.resolve(JSON.stringify({ message })) }
 }
 
 module.exports = { authenticate }

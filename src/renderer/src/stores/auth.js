@@ -13,7 +13,6 @@ export const useAuthStore = defineStore({
   }),
   actions: {
     async login(username, password) {
-      console.log(window.authApi)
       console.log('login', username, password, baseUrl)
 
       const user = await window.authApi.authenticate(username, password)

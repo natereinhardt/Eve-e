@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-import { fetchWrapper, router } from '@renderer/helpers'
+import { router } from '@renderer/helpers'
 
 const baseUrl = `${import.meta.env.VITE_API_URL}/users`
 

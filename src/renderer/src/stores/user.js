@@ -1,9 +1,5 @@
 import { defineStore } from 'pinia'
 
-import { fetchWrapper } from '@renderer/helpers'
-
-const baseUrl = `${import.meta.env.VITE_API_URL}/users`
-
 export const useUsersStore = defineStore({
   id: 'users',
   state: () => ({
@@ -11,11 +7,7 @@ export const useUsersStore = defineStore({
   }),
   actions: {
     async getAll() {
-      this.users = { loading: true }
-      fetchWrapper
-        .get(baseUrl)
-        .then((users) => (this.users = users))
-        .catch((error) => (this.users = { error }))
+      return []
     }
   }
 })

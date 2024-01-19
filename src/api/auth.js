@@ -1,7 +1,4 @@
 let users = [{ id: 1, username: 'test', password: 'test', firstName: 'Test', lastName: 'User' }]
-console.log('here')
-
-// route functions
 
 const authenticate = (username, password) => {
   console.log(username, password)

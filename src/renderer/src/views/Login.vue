@@ -12,7 +12,7 @@ const schema = Yup.object().shape({
 function onSubmit(values, { setErrors }) {
   const authStore = useAuthStore()
   const { username, password } = values
-
+  //return window.authApi.authenticate(username, password)
   return authStore.login(username, password).catch((error) => setErrors({ apiError: error }))
 }
 </script>

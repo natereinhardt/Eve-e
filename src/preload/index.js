@@ -5,6 +5,7 @@ import { electronAPI } from '@electron-toolkit/preload'
 const init = require(path.resolve('./src/database/dbInit.js'))
 // Custom APIs for renderer
 const api = {}
+const authAPi = require(path.resolve('./src/api/auth.js'))
 
 // Use `contextBridge` APIs to expose Electron APIs to
 // renderer only if context isolation is enabled, otherwise
@@ -14,6 +15,7 @@ if (process.contextIsolated) {
     init.initDb()
     contextBridge.exposeInMainWorld('electron', electronAPI)
     contextBridge.exposeInMainWorld('api', api)
+    contextBridge.exposeInMainWorld('authApi', authAPi)
     //contextBridge.exposeInMainWorld('sqlite', personDB)
   } catch (error) {
     console.error(error)

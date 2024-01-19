@@ -5,7 +5,7 @@ export const versionsStore = defineStore('versionsStore', {
     versions: { ...window.electron.process.versions }
   }),
   getters: {
-    versions: (state) => state.versions
+    version: (state) => state.versions
   },
   actions: {}
 })

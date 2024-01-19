@@ -1,9 +1,3 @@
-<script setup>
-import { reactive } from 'vue'
-
-const versions = reactive({ ...window.electron.process.versions })
-</script>
-
 <template>
   <ul class="versions">
     <li class="electron-version">Electron v{{ versions.electron }}</li>
@@ -12,3 +6,10 @@ const versions = reactive({ ...window.electron.process.versions })
     <li class="v8-version">V8 v{{ versions.v8 }}</li>
   </ul>
 </template>
+
+<script setup>
+//import { reactive } from 'vue'
+import { storeToRefs } from 'pinia'
+import { versionsStore } from '@renderer/stores/versions.js'
+const { versions } = storeToRefs(versionsStore())
+</script>

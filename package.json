@@ -23,7 +23,7 @@
     "electron-updater": "^6.1.7",
     "needle": "^3.3.1",
     "papaparse": "^5.4.1",
-    "progress": "^2.0.3",
+    "pinia": "^2.1.7",
     "unbzip2-stream": "^1.4.3"
   },
   "devDependencies": {

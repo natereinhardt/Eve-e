@@ -7,10 +7,12 @@ function fakeBackend() {
     return new Promise((resolve, reject) => {
       // wrap in timeout to simulate server api call
       setTimeout(handleRoute, 500)
-
+      console.log('here')
       function handleRoute() {
+        console.log('handleRoute', url)
         switch (true) {
           case url.endsWith('/users/authenticate') && opts.method === 'POST':
+            console.log('YOLO')
             return authenticate()
           case url.endsWith('/users') && opts.method === 'GET':
             return getUsers()
@@ -26,6 +28,7 @@ function fakeBackend() {
 
       function authenticate() {
         const { username, password } = body()
+        console.log(username, password)
         const user = users.find((x) => x.username === username && x.password === password)
 
         if (!user) return error('Username or password is incorrect')

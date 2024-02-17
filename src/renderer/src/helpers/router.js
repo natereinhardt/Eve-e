@@ -8,7 +8,12 @@ export const router = createRouter({
   linkActiveClass: 'active',
   routes: [
     { path: '/', component: HomeView },
-    { path: '/login', component: LoginView }
+    { path: '/login', component: LoginView },
+    {
+      path: '/eve_sso_callback',
+      component: HomeView,
+      props: (route) => ({ code: route.query.code, state: route.query.state })
+    }
   ]
 })
 

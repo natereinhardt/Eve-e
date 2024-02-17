@@ -1,10 +1,14 @@
 <script setup>
 import Versions from '@renderer/components/Versions.vue'
+const props = defineProps({
+  code: String
+})
+console.log('code:', props.code)
 </script>
 
 <template>
   <Versions></Versions>
-
+  <p>code: {{ code }}</p>
   <svg class="hero-logo" viewBox="0 0 900 300">
     <use xlink:href="./assets/icons.svg#electron" />
   </svg>

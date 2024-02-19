@@ -1,6 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-
-import { useAuthStore } from '@renderer/stores/auth.js'
 import { HomeView, LoginView } from '@renderer/views/index.js'
 
 export const router = createRouter({
@@ -15,16 +13,4 @@ export const router = createRouter({
       props: (route) => ({ code: route.query.code, state: route.query.state })
     }
   ]
-})
-
-router.beforeEach(async (to) => {
-  // redirect to login page if not logged in and trying to access a restricted page
-  const publicPages = ['/login', '/eve_sso_callback']
-  const authRequired = !publicPages.includes(to.path)
-  const auth = useAuthStore()
-
-  // if (authRequired) {
-  //   auth.returnUrl = to.fullPath
-  //   return '/login'
-  // }
 })

@@ -8,10 +8,9 @@ const authStore = useAuthStore()
 
 <template>
   <div class="app-container bg-light">
-    <nav v-show="authStore.user" class="navbar navbar-expand navbar-dark bg-dark">
+    <nav v-show="authStore.userCode" class="navbar navbar-expand navbar-dark bg-dark">
       <div class="navbar-nav">
         <RouterLink to="/" class="nav-item nav-link">Home</RouterLink>
-        <a @click="authStore.logout()" class="nav-item nav-link">Logout</a>
       </div>
     </nav>
     <div class="container pt-4 pb-4">

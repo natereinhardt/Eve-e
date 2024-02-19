@@ -1,22 +1,14 @@
-let users = [{ id: 1, username: 'test', password: 'test', firstName: 'Test', lastName: 'User' }]
-
-const authenticate = (username, password) => {
-  console.log(username, password)
-  const user = users.find((x) => x.username === username && x.password === password)
-  console.log(user)
-  if (!user) throw new Error('Username or password is incorrect')
-
-  return ok({
-    id: user.id,
-    username: user.username,
-    firstName: user.firstName,
-    lastName: user.lastName,
-    token: 'fake-jwt-token'
+const buildAuthUrl = () => {
+  const url = new URL('https://login.eveonline.com/v2/oauth/authorize/')
+  const params = new URLSearchParams({
+    response_type: 'code',
+    redirect_uri: 'http://localhost:5173/eve_sso_callback/',
+    client_id: '308a87f731b343f7bc74f72d0186ff1d',
+    scope: 'publicData',
+    state: 'yolo'
   })
+  url.search = params.toString()
+  return url.toString()
 }
 
-function ok(body) {
-  return { ok: true, text: () => Promise.resolve(JSON.stringify(body)) }
-}
-
-module.exports = { authenticate }
+module.exports = { buildAuthUrl }

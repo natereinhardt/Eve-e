@@ -1,14 +1,25 @@
 <script setup>
 import Versions from '@renderer/components/Versions.vue'
+import { storeToRefs } from 'pinia'
+import { useAuthStore } from '@renderer/stores/auth.js'
+
+const authStore = useAuthStore()
+const { buildAuthUrl, userCode } = storeToRefs(authStore)
+
 const props = defineProps({
   code: String
 })
-console.log('code:', props.code)
+
+const url = buildAuthUrl.value
+authStore.setUserCode(props.code)
 </script>
 
 <template>
   <Versions></Versions>
-  <p>code: {{ code }}</p>
+  <a :href="url">
+    <button>Login to Eve</button>
+  </a>
+  <p v-show="authStore.userCode">Code: {{ code }}</p>
   <svg class="hero-logo" viewBox="0 0 900 300">
     <use xlink:href="./assets/icons.svg#electron" />
   </svg>
@@ -25,10 +36,7 @@ console.log('code:', props.code)
     </div>
     <div class="link-item link-dot">•</div>
     <div class="link-item">
-      <a
-        target="_blank"
-        href="https://github.com/alex8088/quick-start/tree/master/packages/create-electron"
-      >
+      <a target="_blank" href="https://github.com/alex8088/quick-start/tree/master/packages/create-electron">
         create-electron
       </a>
     </div>

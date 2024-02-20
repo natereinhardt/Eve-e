@@ -1,22 +1,19 @@
 <script setup>
 import Versions from '@renderer/components/Versions.vue'
-import { storeToRefs } from 'pinia'
 import { useAuthStore } from '@renderer/stores/auth.js'
 
 const authStore = useAuthStore()
-const { buildAuthUrl, userCode } = storeToRefs(authStore)
 
 const props = defineProps({
   code: String
 })
 
-const url = buildAuthUrl.value
 authStore.setUserCode(props.code)
 </script>
 
 <template>
   <Versions></Versions>
-  <a :href="url">
+  <a :href="authStore.buildAuthUrl">
     <button>Login to Eve</button>
   </a>
   <p v-show="authStore.userCode">Code: {{ code }}</p>
@@ -36,7 +33,10 @@ authStore.setUserCode(props.code)
     </div>
     <div class="link-item link-dot">•</div>
     <div class="link-item">
-      <a target="_blank" href="https://github.com/alex8088/quick-start/tree/master/packages/create-electron">
+      <a
+        target="_blank"
+        href="https://github.com/alex8088/quick-start/tree/master/packages/create-electron"
+      >
         create-electron
       </a>
     </div>

@@ -1,7 +1,5 @@
 import { defineStore } from 'pinia'
 
-import { router } from '@renderer/helpers'
-
 export const useAuthStore = defineStore({
   id: 'auth',
   state: () => ({

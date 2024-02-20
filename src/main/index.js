@@ -1,9 +1,11 @@
 import { app, shell, BrowserWindow } from 'electron'
-import { join } from 'path'
+import { join, resolve } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
+const init = require(resolve('./src/database/dbInit.js'))
 
-function createWindow() {
+async function createWindow() {
+  await init.initDb()
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 1200,

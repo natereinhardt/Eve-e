@@ -2,7 +2,8 @@ import { contextBridge } from 'electron'
 const path = require('path')
 import { electronAPI } from '@electron-toolkit/preload'
 //const personDB = require(path.resolve('./src/database/PersonManager.js'))
-const init = require(path.resolve('./src/database/dbInit.js'))
+// const init = require(path.resolve('./src/database/dbInit.js'))
+// init.initDb()
 // Custom APIs for renderer
 const api = {}
 const authAPi = require(path.resolve('./src/api/auth.js'))
@@ -12,7 +13,6 @@ const authAPi = require(path.resolve('./src/api/auth.js'))
 // just add to the DOM global.
 if (process.contextIsolated) {
   try {
-    init.initDb()
     contextBridge.exposeInMainWorld('electron', electronAPI)
     contextBridge.exposeInMainWorld('api', api)
     contextBridge.exposeInMainWorld('authApi', authAPi)

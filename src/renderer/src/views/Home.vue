@@ -9,6 +9,9 @@ const props = defineProps({
 })
 
 authStore.setUserCode(props.code)
+if (props.code) {
+  authStore.fetchAccessToken(props.code)
+}
 </script>
 
 <template>

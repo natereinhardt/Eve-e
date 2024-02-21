@@ -16,7 +16,8 @@ if (props.code) {
 
 <template>
   <Versions></Versions>
-  <a :href="authStore.buildAuthUrl">
+
+  <a v-if="!authStore.secrets" :href="authStore.buildAuthUrl">
     <button>Login to Eve</button>
   </a>
   <p v-show="authStore.userCode">Code: {{ code }}</p>
@@ -36,10 +37,7 @@ if (props.code) {
     </div>
     <div class="link-item link-dot">•</div>
     <div class="link-item">
-      <a
-        target="_blank"
-        href="https://github.com/alex8088/quick-start/tree/master/packages/create-electron"
-      >
+      <a target="_blank" href="https://github.com/alex8088/quick-start/tree/master/packages/create-electron">
         create-electron
       </a>
     </div>

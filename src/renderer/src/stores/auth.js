@@ -5,13 +5,13 @@ export const useAuthStore = defineStore({
   state: () => ({
     // initialize state from local storage to enable user to stay logged in
     userCode: null,
-    returnUrl: null
+    returnUrl: null,
+    secrets: null
   }),
   getters: {
     buildAuthUrl() {
       console.log('Building Auth Url')
-      const { url, codeVerifier } = window.authApi.buildAuthUrl()
-      return url
+      return window.authApi.buildAuthUrl()
     }
   },
   actions: {
